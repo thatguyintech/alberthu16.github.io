@@ -1,69 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Albert Hu</title>
+---
+layout: default
+---
 
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/personal.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link href='https://fonts.googleapis.com/css?family=Indie+Flower:300,400,700,800,900'
-    rel='stylesheet' type='text/css'>
-  </head>
+<div class="home">
 
-  <body>
-    <div class="header">
-      <div class="name overlay">
+  <h1 class="page-heading">Posts</h1>
 
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
 
-        <div class="row">
-          <div class="col-lg-12">
-            <h1>Albert Hu</h1>
-            <h1 id="byline">Developer, Ramen Enthusiast</h1>
-          </div>
-        </div>
+        <h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </h2>
+      </li>
+    {% endfor %}
+  </ul>
 
-        <div class="row icon-row">
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 
-            <a href="https://github.com/alberthu16" target="_blank">
-              <i class="icon fa fa-github fa-3x"></i>
-            </a>
-
-            <a href="https://www.linkedin.com/in/albhu" target="_blank">
-              <i class="icon fa fa-linkedin-square fa-3x"></i>
-            </a>
-
-<!--             <a href="https://angel.co/albert-hu-2" target="_blank">
-              <i class="icon fa fa-angellist fa-3x"></i>
-            </a>
- -->
-            <a href="http://alberthu.vsco.co" target="_blank">
-              <i class="icon fa fa-camera-retro fa-3x"></i>
-            </a>
-
-            <a href="https://www.youtube.com/watch?v=kNAmmAfirPg" target="_blank">
-              <i class="icon fa fa-youtube-play fa-3x"></i>
-            </a>
-
-
-          <div class="col-lg-4">
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-
-    <div class="info">
-    </div>
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-  </body>
-</html>
+</div>
